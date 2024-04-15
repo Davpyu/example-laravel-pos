@@ -1,0 +1,80 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/auth/login:
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Email Address from user credential'
+                  example: sprice@example.com
+                password:
+                  type: string
+                  description: 'Password from user credential'
+                  example: tmiR0yzG9Jg>Gj7
+                remember_me:
+                  type: boolean
+                  description: 'Determined about how token generated works'
+                  example: true
+              required:
+                - email
+                - password
+                - remember_me
+      security: []
+  /api/auth/logout:
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authentication
+          description: ''
+          example: 'Bearer xxx'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/auth/refresh:
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authentication
+          description: ''
+          example: 'Bearer xxx'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
